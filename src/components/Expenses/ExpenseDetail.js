@@ -1,4 +1,5 @@
 import React from 'react'
+import './ExpenseDetail.css'
 const ExpenseDetail=(props)=>
 {
     
