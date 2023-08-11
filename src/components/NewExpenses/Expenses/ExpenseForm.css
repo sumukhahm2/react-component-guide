@@ -1,0 +1,22 @@
+.expense-form{
+background-color: rgb(13, 175, 175);
+border: 2px ridge black;
+ width: 50%;
+ margin-left: 25rem;
+font-size: xx-large;
+padding: 20px;
+text-indent: 0.5rem;
+}
+.expense-form__action{
+    padding-left: 200px;
+    
+}
+input{
+    font-size:medium;
+    margin-left: 10px;
+}
+.btn{
+    background-color: rgb(88, 10, 190);
+    font-size: x-large;
+    font-weight: bolder;
+}

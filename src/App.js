@@ -1,7 +1,10 @@
-import ExpenseItem from './components/Expenses/ExpenseItem';
+import ExpenseItem from './components/NewExpenses/Expenses/ExpenseItem';
 import React from 'react'
+import ExpenseForm from './components/NewExpenses/Expenses/ExpenseForm';
 const App=()=>
 {
+    
+   
     const obj=[
         {
             id:'e1',
@@ -42,7 +45,7 @@ const App=()=>
     {
         return(
         
-            <div>
+            <div key={item.id}>
                <ExpenseItem title={item.title}
                   amount={item.amount}
                   date={item.date}
@@ -51,10 +54,12 @@ const App=()=>
                
             </div>
         );
+       
     })
     return(
         <>
          <h2>Lets get started---</h2> 
+         <ExpenseForm></ExpenseForm>
         {datas}
         </>
     )
