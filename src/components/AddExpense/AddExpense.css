@@ -1,0 +1,18 @@
+.add_expense__btn{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 600px;
+}
+.btn-expense{
+    font-size: 25px;
+    padding: 5px;
+   border:2px ridge rgb(54, 21, 21);
+    border-radius: 5px;
+    font-weight: bolder;
+    display: inline-block;
+    transition-duration: 0.4s;
+}
+.btn-expense:hover{
+    background-color: #008CBA;
+    color:white;
+}

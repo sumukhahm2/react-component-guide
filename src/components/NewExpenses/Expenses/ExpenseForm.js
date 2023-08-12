@@ -1,32 +1,40 @@
 import './ExpenseForm.css';
-import React from 'react'
+import React,{ useState} from 'react'
 const ExpenseForm=()=>
 {
-
-    const addExpense=(e)=>{
-        e.preventDefault()
-        const etitle=document.getElementById('title').value;
-        const eamount=document.getElementById('amount').value ;
-        const edate=document.getElementById('date').value ;
-        console.log(etitle,eamount,edate);
+    const [updatedTitle,setTitle]=useState('');
+    const [updatedAmount,setAmount]=useState('');
+    const [updatedDate,setDate]=useState('');
+    const titleChangeHandler=(event)=>{
+        setTitle(event.target.value)
+        console.log(updatedTitle)
     }
+    const amountChangeHandler=(event)=>{
+        setAmount(event.target.value)
+        console.log(updatedAmount)
+    }
+    const dateChangeHandler=(event)=>{
+        setDate(event.target.value)
+        console.log(updatedDate)
+    }
+
    return (
     <form className="expense-form">
         <div className="expense-form__items">
             <div className="expense-form__item">
                 <label>Expense Title</label>
-                <input id='title' type="text"/>
+                <input id='title' type="text" onChange={titleChangeHandler}/>
             </div>
             <div className="expense-form__item">
                 <label>Expense Amount</label>
-                <input id='amount' type="number" min="0.01" step="0.01"/>
+                <input id='amount' type="number" min="0.01" step="0.01" onChange={amountChangeHandler}/>
             </div>
             <div className="expense-form__item">
                 <label>Expense Date</label>
-                <input id='date' type="date" min="2019-01-01" max="2023-08-01"/>
+                <input id='date' type="date" min="2019-01-01" max="2023-08-01" onChange={dateChangeHandler}/>
             </div>
             <div className="expense-form__action">
-                <button className='btn' onClick={addExpense}>Add Expesne</button>
+                <button className='btn'>Add Expesne</button>
             </div>
 
         </div>
