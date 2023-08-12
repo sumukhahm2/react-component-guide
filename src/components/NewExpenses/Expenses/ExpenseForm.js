@@ -1,3 +1,4 @@
+import obj from './Object' 
 import './ExpenseForm.css';
 import React,{ useState} from 'react'
 const ExpenseForm=()=>
@@ -5,21 +6,38 @@ const ExpenseForm=()=>
     const [updatedTitle,setTitle]=useState('');
     const [updatedAmount,setAmount]=useState('');
     const [updatedDate,setDate]=useState('');
+    const [expenseAdd,expenseAding]=useState(obj)
+    
+   const addExpense=(event)=>{
+    event.preventDefault();
+      expenseAding(
+        {
+            id:0,
+            title:updatedTitle,
+            amount:updatedAmount,
+            date: new Date(updatedDate),
+            location:''
+          
+        })
+      console.log(expenseAdd)
+   }
+    
+    
     const titleChangeHandler=(event)=>{
         setTitle(event.target.value)
-        console.log(updatedTitle)
+        
     }
     const amountChangeHandler=(event)=>{
         setAmount(event.target.value)
-        console.log(updatedAmount)
+        
     }
     const dateChangeHandler=(event)=>{
         setDate(event.target.value)
-        console.log(updatedDate)
+        
     }
 
    return (
-    <form className="expense-form">
+    <form className="expense-form" onSubmit={addExpense}>
         <div className="expense-form__items">
             <div className="expense-form__item">
                 <label>Expense Title</label>
