@@ -1,12 +1,21 @@
 import ExpenseItem from './components/NewExpenses/Expenses/ExpenseItem';
-import React from 'react'
+import React,{useState} from 'react'
 import obj from './components/NewExpenses/Expenses/Object'
-import ExpenseForm from './components/NewExpenses/Expenses/ExpenseForm';
+import NewExpense from './components/NewExpenses/Expenses/NewExpense'
+import ExpenseFilter from './components/NewExpenses/Expenses/ExpenseFilter';
 const App=()=>
 {
-    
-   
-    
+     const [filteredYear,setFilteredYear]=useState('')
+     const filterChangeHandler=(selectedYear)=>{
+        setFilteredYear(selectedYear)
+     }
+    const [oldCopy,newFun]=useState('2020')
+    const addExpenseHandler=(expense)=>{
+             newFun(expense)
+        obj.push(expense)
+      console.log(oldCopy)
+    }
+
     const datas=obj.map((item)=>
     {
         return(
@@ -24,7 +33,8 @@ const App=()=>
     })
     return(
         <>
-        <ExpenseForm></ExpenseForm>
+        <NewExpense afterEntered={addExpenseHandler}></NewExpense>
+        <ExpenseFilter selected={filteredYear} onChangeFilter={filterChangeHandler}></ExpenseFilter>
         {datas}
         </>
     )

@@ -1,25 +1,28 @@
-import obj from './Object' 
+ 
 import './ExpenseForm.css';
 import React,{ useState} from 'react'
-const ExpenseForm=()=>
+const ExpenseForm=(props)=>
 {
     const [updatedTitle,setTitle]=useState('');
     const [updatedAmount,setAmount]=useState('');
     const [updatedDate,setDate]=useState('');
-    const [expenseAdd,expenseAding]=useState(obj)
+    
     
    const addExpense=(event)=>{
     event.preventDefault();
-      expenseAding(
-        {
-            id:0,
+      
+       const expenseAdd= {
             title:updatedTitle,
             amount:updatedAmount,
             date: new Date(updatedDate),
             location:''
           
-        })
-      console.log(expenseAdd)
+        }
+        props.onEnteredValues(expenseAdd)
+        setTitle('')
+        setAmount('')
+        setDate('')
+      
    }
     
     
@@ -41,15 +44,15 @@ const ExpenseForm=()=>
         <div className="expense-form__items">
             <div className="expense-form__item">
                 <label>Expense Title</label>
-                <input id='title' type="text" onChange={titleChangeHandler}/>
+                <input id='title' type="text" value={updatedTitle} onChange={titleChangeHandler}/>
             </div>
             <div className="expense-form__item">
                 <label>Expense Amount</label>
-                <input id='amount' type="number" min="0.01" step="0.01" onChange={amountChangeHandler}/>
+                <input id='amount' type="number" min="0.01" step="0.01" value={updatedAmount} onChange={amountChangeHandler}/>
             </div>
             <div className="expense-form__item">
                 <label>Expense Date</label>
-                <input id='date' type="date" min="2019-01-01" max="2023-08-01" onChange={dateChangeHandler}/>
+                <input id='date' type="date" min="2019-01-01" max="2023-08-01" value={updatedDate} onChange={dateChangeHandler}/>
             </div>
             <div className="expense-form__action">
                 <button className='btn'>Add Expesne</button>
