@@ -1,0 +1,12 @@
+.expense-filter__years{
+    margin: 20px;
+    padding-left: 600px;
+}
+.expense-filter__year{
+  width:auto;
+  height: 50px;
+    
+}
+.select_filter{
+    font-size: 20px;
+}

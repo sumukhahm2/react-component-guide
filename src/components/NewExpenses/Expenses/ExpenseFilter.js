@@ -1,3 +1,5 @@
+
+import './ExpenseFilter.css'
 const ExpenseFilter=(props)=>{
     const dropDownChangeHandler=(event)=>{
      props.onChangeFilter(event.target.value)
@@ -5,7 +7,7 @@ const ExpenseFilter=(props)=>{
     return(
         <div className="expense-filter__years">
             <div className="expense-filter__year">
-                <select value={props.selected} onChange={dropDownChangeHandler}>
+                <select  className='select_filter' value={props.selected} onChange={dropDownChangeHandler}>
                  <option value='2019'>2019</option>
                  <option value='2020'>2020</option>
                  <option value='2021'>2021</option>

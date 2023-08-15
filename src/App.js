@@ -8,12 +8,22 @@ const App=()=>
      const [filteredYear,setFilteredYear]=useState('')
      const filterChangeHandler=(selectedYear)=>{
         setFilteredYear(selectedYear)
+         const year=obj.filter(exp =>{
+          return exp.date.getFullYear()==selectedYear
+             
+        })
+        newFun(year)
+        
+       
      }
+     
     const [datas,newFun]=useState(obj)
     const addExpenseHandler=(expense)=>{
+          
              newFun(oldExpense=>{
                 return [expense,...oldExpense]
              })
+             obj.push(expense)
         
     }
 
