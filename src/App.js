@@ -5,25 +5,38 @@ import NewExpense from './components/NewExpenses/Expenses/NewExpense'
 import ExpenseFilter from './components/NewExpenses/Expenses/ExpenseFilter';
 const App=()=>
 {
+   const [datas,newFun]=useState(obj)
      const [filteredYear,setFilteredYear]=useState('')
      const filterChangeHandler=(selectedYear)=>{
         setFilteredYear(selectedYear)
-         const year=obj.filter(exp =>{
-          return exp.date.getFullYear()==selectedYear
-             
-        })
-        newFun(year)
+           
+         }
+         
+         const filteredExpense=datas.filter(exp =>{
+            return exp.date.getFullYear().toString()===filteredYear
+         })
         
-       
-     }
-     
-    const [datas,newFun]=useState(obj)
+            
+         let filterContent;
+          
+           filterContent=datas.map(expense=><ExpenseItem key={expense.id} title={expense.title} amount={expense.amount} date={expense.date} location={expense.location}  />)
+           if(filterContent.length===1)
+           filterContent=datas.map(expense=><div key={expense.id}><ExpenseItem key={expense.id} title={expense.title} amount={expense.amount} date={expense.date} location={expense.location}  />
+           <p>Only single Expense here. Please add more...</p>
+           </div>)
+   if(filteredExpense.length===0 && filteredYear && filteredYear!=='0')
+      filterContent= <p>No expenses found.</p>;
+   if(filteredExpense.length>0)
+   {
+      
+        filterContent=filteredExpense.map(expense=><ExpenseItem key={expense.id} title={expense.title} amount={expense.amount} date={expense.date} location={expense.location}  />)
+   }
     const addExpenseHandler=(expense)=>{
           
              newFun(oldExpense=>{
                 return [expense,...oldExpense]
              })
-             obj.push(expense)
+             
         
     }
 
@@ -32,7 +45,7 @@ const App=()=>
         <>
         <NewExpense afterEntered={addExpenseHandler}></NewExpense>
         <ExpenseFilter selected={filteredYear} onChangeFilter={filterChangeHandler}></ExpenseFilter>
-        {datas.map(expense=><ExpenseItem key={expense.id} title={expense.title} amount={expense.amount} date={expense.date} location={expense.location}  />)}
+        {filterContent}
         </>
     )
    

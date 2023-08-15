@@ -6,8 +6,8 @@ const obj=[
         date:new Date(2021,2,18),
         location:'shop'
 
-    },
-    {
+    }
+    /*{
         id:'e2',
         title:'TV',
         amount:964.36,
@@ -32,7 +32,7 @@ const obj=[
         location:'Market'
 
 
-    }
+    }*/
 ];
 
 export default obj;
