@@ -1,0 +1,15 @@
+.ad-expense{
+  margin:50px;
+  padding:0px;
+  text-align:center;
+  
+}
+.add-button{
+    margin:50px;
+    font-size:30px;
+    
+}
+.add-button:hover{
+    color:black;
+    background-color:blue;
+}

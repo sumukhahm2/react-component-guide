@@ -20,3 +20,10 @@ input{
     font-size: x-large;
     font-weight: bolder;
 }
+.bton{
+    background-color: rgb(62, 60, 63);
+    font-size: x-large;
+    font-weight: bolder;
+    margin: 5px;
+}
+
